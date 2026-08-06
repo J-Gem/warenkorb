@@ -1,0 +1,2 @@
+Warenkorb/lib/runtime/lib/libjfxwebkit.so filter=lfs diff=lfs merge=lfs -text
+Warenkorb/lib/runtime/lib/modules filter=lfs diff=lfs merge=lfs -text

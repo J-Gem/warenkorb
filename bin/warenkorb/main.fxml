@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <SplitPane dividerPositions="0.2505567928730512, 0.7505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <items>
+        <AnchorPane prefHeight="827.0" prefWidth="222.0">
+          <children>
+                  <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                    <items>
+                      <AnchorPane>
+                           <children>
+                              <ListView fx:id="WKListe" prefHeight="414.0" prefWidth="222.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane>
+                           <children>
+                              <Button fx:id="btnWKLöschen" layoutX="14.0" layoutY="79.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="195.0" text="Warenkorb löschen" />
+                              <TextField fx:id="WKInput" prefHeight="26.0" prefWidth="195.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="13.0" />
+                              <Button fx:id="btnWKHinzufuegen" layoutX="14.0" layoutY="38.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="195.0" text="Warenkorb hinzufügen" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="13.0" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+          </children>
+        </AnchorPane>
+        <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+          <content>
+            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="442.0">
+                     <children>
+                        <TableView fx:id="AKTable" prefHeight="549.0" prefWidth="443.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="ArtikelnummerColumn" prefWidth="120.0" text="Artikelnummer" />
+                            <TableColumn fx:id="ArtikelnameColumn" prefWidth="97.0" text="Artikelname" />
+                              <TableColumn fx:id="steuersatzColumn" prefWidth="97.0" text="Steuersatz" />
+                              <TableColumn fx:id="preisColumn" prefWidth="97.0" text="Brutto Preis" />
+                          </columns>
+                        </TableView>
+                     </children>
+            </AnchorPane>
+          </content>
+        </ScrollPane>
+        <AnchorPane prefHeight="549.0" prefWidth="254.0">
+               <children>
+                  <TextField fx:id="InputAKnummer" layoutX="29.0" layoutY="50.0" />
+                  <Text layoutX="29.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Artikelnummer" />
+                  <TextField fx:id="InputAKname" layoutX="29.0" layoutY="119.0" />
+                  <Text layoutX="29.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Artikelname" />
+                  <TextField fx:id="InputAKsteuersatz" layoutX="29.0" layoutY="187.0" />
+                  <Text layoutX="29.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steuersatz" />
+                  <TextField fx:id="InputAKPreis" layoutX="29.0" layoutY="264.0" />
+                  <Text layoutX="29.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Netto Preis" />
+                  <Button layoutX="29.0" layoutY="315.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="162.0" text="Artikel hinzufügen" />
+                  <Button layoutX="29.0" layoutY="353.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="162.0" text="Artikel löschen" />
+               </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+    <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
+      <children>
+        <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
+          <font>
+            <Font size="11.0" fx:id="x3" />
+          </font>
+          <textFill>
+            <Color red="0.625" green="0.625" blue="0.625" fx:id="x4" />
+          </textFill>
+        </Label>
+        <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+        <Label font="$x3" maxWidth="-1.0" text="Right status" textFill="$x4" HBox.hgrow="NEVER" />
+      </children>
+      <padding>
+        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+      </padding>
+    </HBox>
+  </children>
+</VBox>
