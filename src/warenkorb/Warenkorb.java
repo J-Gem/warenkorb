@@ -12,25 +12,25 @@ public class Warenkorb {
         this.name = name;
     }
 
-    void ausgabe() {
+    public void ausgabe() {
         for (int i = 0; i < artikelListe.lastIndexOf(artikelListe); i++)
             System.out.println("Artikelnummer: " + artikelListe.get(i).getArtikelnummer() + ", Beschreibung:"
                     + artikelListe.get(i).getBeschreibung() + ", Nettopreis: " + artikelListe.get(i).getNettopreis()
                     + ", Steuersatz: " + artikelListe.get(i).getSteuersatz());
     }
 
-    boolean artikelHinzufuegen(int artikelnummer, String beschreibung, float nettopreis, float steuersatz) {
+    public boolean artikelHinzufuegen(int artikelnummer, String beschreibung, float nettopreis, float steuersatz) {
         Artikel artiekl = new Artikel(artikelnummer, beschreibung, nettopreis, steuersatz);
         artikelListe.add(artiekl);
         return true;
     }
 
-    boolean artikelLoeschen(int artikelnummer) {
+    public boolean artikelLoeschen(int artikelnummer) {
         artikelListe.remove(artikelnummer);
         return true;
     }
 
-    float gesamtpreisBerechnen() {
+    public float gesamtpreisBerechnen() {
         float gesamtpreis = 0;
         for (int i = 0; i < artikelListe.lastIndexOf(artikelListe); i++) {
             gesamtpreis += (artikelListe.get(i).getNettopreis()
@@ -39,11 +39,11 @@ public class Warenkorb {
         return gesamtpreis;
     }
 
-    int gesamtAnzahlBerechnen() {
+    public int gesamtAnzahlBerechnen() {
         return artikelListe.lastIndexOf(artikelListe);
     }
 
-    List<Artikel> getArtikelListe(){
-        return artikelListe;
+    public Artikel getArtikel(int index){
+        return artikelListe.get(index);
     }
 }
