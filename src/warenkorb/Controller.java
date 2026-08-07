@@ -84,15 +84,20 @@ public class Controller {
 
     @FXML
     private void WKHinzufuegen() {
-        this.myShop.warenkorbHinzufuegen(WKInput.getText());
-        updateList();
-        WKInput.clear();
+        if (WKInput.getText() != "" && this.checkWarenkorb(WKInput.getText())) {
+            this.myShop.warenkorbHinzufuegen(WKInput.getText());
+            updateList();
+            WKInput.clear();
+        }
     }
 
     @FXML
     private void WKLoeschen() {
-        this.myShop.warenkorbLoeschen(WKListe.getSelectionModel().getSelectedIndex());
-        updateList();
+        if (this.myShop.anzahlWarenkorbe() != 0) {
+            this.myShop.warenkorbLoeschen(WKListe.getSelectionModel().getSelectedIndex());
+            updateList();
+            AKTable.getItems().clear();
+        }
     }
 
     @FXML
@@ -102,18 +107,55 @@ public class Controller {
 
     @FXML
     private void AKHinzufuegen() {
-        this.myWarenkorb.artikelHinzufuegen(Integer.parseInt(InputAKnummer.getText()), InputAKname.getText(),
-                Float.parseFloat(InputAKPreis.getText()), Float.parseFloat(InputAKsteuersatz.getText()));
-        updateTable();
-        InputAKnummer.clear();
-        InputAKname.clear();
-        InputAKPreis.clear();
-        InputAKsteuersatz.clear();
+        if (this.checkArtikelVoll() && checkArtikel((Integer.parseInt(InputAKnummer.getText())))) {
+            this.myWarenkorb.artikelHinzufuegen(Integer.parseInt(InputAKnummer.getText()), InputAKname.getText(),
+                    Float.parseFloat(InputAKPreis.getText()), Float.parseFloat(InputAKsteuersatz.getText()));
+            updateTable();
+            InputAKnummer.clear();
+            InputAKname.clear();
+            InputAKPreis.clear();
+            InputAKsteuersatz.clear();
+        }
     }
 
     @FXML
     private void AKLoeschen() {
-        this.myWarenkorb.artikelLoeschen(AKTable.getSelectionModel().getSelectedIndex());
-        updateTable();
+        if (this.myShop.anzahlWarenkorbe() != 0 && this.myWarenkorb.gesamtAnzahlBerechnen() != 0
+                && AKTable.getSelectionModel().getSelectedIndex() > -1) {
+            this.myWarenkorb.artikelLoeschen(AKTable.getSelectionModel().getSelectedIndex());
+            updateTable();
+        }
+    }
+
+    public boolean checkWarenkorb(String name) {
+        for (int i = 0; i < this.myShop.anzahlWarenkorbe(); i++) {
+            if (this.myShop.getWarenkorb(i).getName().equals(name)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean checkArtikelVoll() {
+        if (InputAKnummer.getText() != "" && InputAKname.getText() != "" && InputAKPreis.getText() != ""
+                && InputAKsteuersatz.getText() != "" && this.myShop.anzahlWarenkorbe() != 0) {
+            if (InputAKnummer.getText().matches("\\d+") && InputAKPreis.getText().matches("\\d+(\\.\\d+)?")
+                    && InputAKsteuersatz.getText().matches("\\d+(\\.\\d+)?")) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public boolean checkArtikel(int nummer) {
+        for (int i = 0; i < this.myWarenkorb.gesamtAnzahlBerechnen(); i++) {
+            if (this.myWarenkorb.getArtikel(i).getArtikelnummer() == nummer) {
+                return false;
+            }
+        }
+        return true;
     }
 }
