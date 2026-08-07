@@ -46,4 +46,12 @@ public class Warenkorb {
     public Artikel getArtikel(int index){
         return artikelListe.get(index);
     }
+
+    public List<Artikel> getArtikelListe(){
+        return artikelListe;
+    }
+
+    public String getName(){
+        return this.name;
+    }
 }

@@ -64,9 +64,9 @@
                         </AnchorPane>
                         <AnchorPane>
                            <children>
-                              <Button fx:id="btnWKLöschen" layoutX="14.0" layoutY="79.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="195.0" text="Warenkorb löschen" />
+                              <Button fx:id="btnWKLöschen" layoutX="14.0" layoutY="79.0" mnemonicParsing="false" onAction="#WKLoeschen" prefHeight="27.0" prefWidth="195.0" text="Warenkorb löschen" />
                               <TextField fx:id="WKInput" prefHeight="26.0" prefWidth="195.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="13.0" />
-                              <Button fx:id="btnWKHinzufuegen" layoutX="14.0" layoutY="38.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="195.0" text="Warenkorb hinzufügen" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="13.0" />
+                              <Button fx:id="btnWKHinzufuegen" layoutX="14.0" layoutY="38.0" mnemonicParsing="false" onAction="#WKHinzufuegen" prefHeight="26.0" prefWidth="195.0" text="Warenkorb hinzufügen" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="13.0" />
                            </children>
                         </AnchorPane>
                     </items>
@@ -99,8 +99,8 @@
                   <Text layoutX="29.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steuersatz" />
                   <TextField fx:id="InputAKPreis" layoutX="29.0" layoutY="264.0" />
                   <Text layoutX="29.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Netto Preis" />
-                  <Button layoutX="29.0" layoutY="315.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="162.0" text="Artikel hinzufügen" />
-                  <Button layoutX="29.0" layoutY="353.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="162.0" text="Artikel löschen" />
+                  <Button fx:id="btnAKHinzufuegen" layoutX="29.0" layoutY="315.0" mnemonicParsing="false" onAction="#AKHinzufuegen" prefHeight="26.0" prefWidth="162.0" text="Artikel hinzufügen" />
+                  <Button fx:id="btnAKloeschen" layoutX="29.0" layoutY="353.0" mnemonicParsing="false" onAction="#AKLoeschen" prefHeight="26.0" prefWidth="162.0" text="Artikel löschen" />
                </children>
         </AnchorPane>
       </items>

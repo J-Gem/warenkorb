@@ -23,4 +23,8 @@ public class Shop {
     public Warenkorb getWarenkorb(int index) {
         return warenkorbListe.get(index);
     }
+
+    public int anzahlWarenkorbe(){
+        return warenkorbListe.size();
+    }
 }
