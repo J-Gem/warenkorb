@@ -93,10 +93,11 @@ public class Controller {
 
     @FXML
     private void WKLoeschen() {
-        if (this.myShop.anzahlWarenkorbe() != 0) {
+        if (this.myShop.anzahlWarenkorbe() > 0) {
             this.myShop.warenkorbLoeschen(WKListe.getSelectionModel().getSelectedIndex());
             updateList();
-            AKTable.getItems().clear();
+            if (this.myShop.anzahlWarenkorbe() == 0)
+                AKTable.getItems().clear();
         }
     }
 
