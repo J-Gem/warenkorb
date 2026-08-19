@@ -32,26 +32,34 @@ public class Warenkorb {
 
     public float gesamtpreisBerechnen() {
         float gesamtpreis = 0;
-        for (int i = 0; i < artikelListe.lastIndexOf(artikelListe); i++) {
+        for (int i = 0; i < artikelListe.size(); i++) {
             gesamtpreis += (artikelListe.get(i).getNettopreis()
-                    + artikelListe.get(i).getNettopreis() * artikelListe.get(i).getSteuersatz());
+                    + artikelListe.get(i).getNettopreis() * (artikelListe.get(i).getSteuersatz()/100));
         }
         return gesamtpreis;
     }
 
     public int gesamtAnzahlBerechnen() {
-        return artikelListe.lastIndexOf(artikelListe);
+        return artikelListe.size();
     }
 
-    public Artikel getArtikel(int index){
+    public Artikel getArtikel(int index) {
         return artikelListe.get(index);
     }
 
-    public List<Artikel> getArtikelListe(){
+    public List<Artikel> getArtikelListe() {
         return artikelListe;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
+    }
+
+    public float gesamtNettopreisBerechnen() {
+        float gesamtpreis = 0;
+        for (int i = 0; i < this.artikelListe.size(); i++) {
+            gesamtpreis += artikelListe.get(i).getNettopreis();
+        }
+        return gesamtpreis;
     }
 }

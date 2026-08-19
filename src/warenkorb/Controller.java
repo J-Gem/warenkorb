@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.Label;
 
 public class Controller {
     private Shop myShop;
@@ -39,6 +40,15 @@ public class Controller {
 
     @FXML
     private TextField InputAKPreis;
+
+    @FXML
+    private Label labelNettopreis;
+
+    @FXML
+    private Label labelBruttopreis;
+
+    @FXML
+    private Label labelArtikelanzahl;
 
     @FXML
     private TableView<Artikel> AKTable;
@@ -104,6 +114,9 @@ public class Controller {
     @FXML
     public void updateTable() {
         AKTable.getItems().setAll(this.myWarenkorb.getArtikelListe());
+        this.setNettopreis();
+        this.setBruttopreis();
+        this.setAnzahl();
     }
 
     @FXML
@@ -116,6 +129,7 @@ public class Controller {
             InputAKname.clear();
             InputAKPreis.clear();
             InputAKsteuersatz.clear();
+
         }
     }
 
@@ -158,5 +172,17 @@ public class Controller {
             }
         }
         return true;
+    }
+
+    public void setNettopreis() {
+        labelNettopreis.setText(String.format("%.2f", this.myWarenkorb.gesamtNettopreisBerechnen()));
+    }
+
+    public void setBruttopreis() {
+        labelBruttopreis.setText(String.format("%.2f", this.myWarenkorb.gesamtpreisBerechnen()));
+    }
+
+    public void setAnzahl() {
+        labelArtikelanzahl.setText(String.valueOf(this.myWarenkorb.gesamtAnzahlBerechnen()));
     }
 }

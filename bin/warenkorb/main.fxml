@@ -49,7 +49,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <SplitPane dividerPositions="0.2505567928730512, 0.7505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <items>
@@ -59,12 +59,12 @@
                     <items>
                       <AnchorPane>
                            <children>
-                              <ListView fx:id="WKListe" prefHeight="414.0" prefWidth="222.0" />
+                              <ListView fx:id="WKListe" prefHeight="414.0" prefWidth="257.0" />
                            </children>
                         </AnchorPane>
                         <AnchorPane>
                            <children>
-                              <Button fx:id="btnWKLöschen" layoutX="14.0" layoutY="79.0" mnemonicParsing="false" onAction="#WKLoeschen" prefHeight="27.0" prefWidth="195.0" text="Warenkorb löschen" />
+                              <Button fx:id="btnWKLöschen" layoutX="14.0" layoutY="79.0" mnemonicParsing="false" onAction="#WKLoeschen" prefHeight="27.0" prefWidth="230.0" text="Warenkorb löschen" />
                               <TextField fx:id="WKInput" prefHeight="26.0" prefWidth="195.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="13.0" />
                               <Button fx:id="btnWKHinzufuegen" layoutX="14.0" layoutY="38.0" mnemonicParsing="false" onAction="#WKHinzufuegen" prefHeight="26.0" prefWidth="195.0" text="Warenkorb hinzufügen" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="13.0" />
                            </children>
@@ -73,23 +73,23 @@
                   </SplitPane>
           </children>
         </AnchorPane>
-        <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+        <ScrollPane prefHeight="576.0" prefWidth="775.0">
           <content>
             <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="442.0">
                      <children>
-                        <TableView fx:id="AKTable" prefHeight="549.0" prefWidth="443.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="AKTable" prefHeight="545.0" prefWidth="524.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-82.0" AnchorPane.topAnchor="0.0">
                           <columns>
                             <TableColumn fx:id="ArtikelnummerColumn" prefWidth="120.0" text="Artikelnummer" />
-                            <TableColumn fx:id="ArtikelnameColumn" prefWidth="97.0" text="Artikelname" />
+                            <TableColumn fx:id="ArtikelnameColumn" minWidth="20.0" prefWidth="210.0" text="Artikelname" />
                               <TableColumn fx:id="steuersatzColumn" prefWidth="97.0" text="Steuersatz" />
-                              <TableColumn fx:id="preisColumn" prefWidth="97.0" text="Brutto Preis" />
+                              <TableColumn fx:id="preisColumn" prefWidth="97.0" text="Netto Preis" />
                           </columns>
                         </TableView>
                      </children>
             </AnchorPane>
           </content>
         </ScrollPane>
-        <AnchorPane prefHeight="549.0" prefWidth="254.0">
+        <AnchorPane prefHeight="576.0" prefWidth="230.0">
                <children>
                   <TextField fx:id="InputAKnummer" layoutX="29.0" layoutY="50.0" />
                   <Text layoutX="29.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Artikelnummer" />
@@ -101,6 +101,12 @@
                   <Text layoutX="29.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Netto Preis" />
                   <Button fx:id="btnAKHinzufuegen" layoutX="29.0" layoutY="315.0" mnemonicParsing="false" onAction="#AKHinzufuegen" prefHeight="26.0" prefWidth="162.0" text="Artikel hinzufügen" />
                   <Button fx:id="btnAKloeschen" layoutX="29.0" layoutY="353.0" mnemonicParsing="false" onAction="#AKLoeschen" prefHeight="26.0" prefWidth="162.0" text="Artikel löschen" />
+                  <Label layoutX="29.0" layoutY="404.0" text="Nettopreis: " />
+                  <Label layoutX="29.0" layoutY="434.0" text="Bruttopreis: " />
+                  <Label fx:id="labelNettopreis" layoutX="105.0" layoutY="404.0" text="0" />
+                  <Label fx:id="labelBruttopreis" layoutX="105.0" layoutY="434.0" text="0" />
+                  <Label layoutX="29.0" layoutY="472.0" text="Artikelanzahl: " />
+                  <Label fx:id="labelArtikelanzahl" layoutX="122.0" layoutY="472.0" text="0" />
                </children>
         </AnchorPane>
       </items>
